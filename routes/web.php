@@ -16,9 +16,7 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test1', function () {
-  return "test1";
-});
+
 
 Route::get('/testPost', function (Request $request) {
   var_dump($request->all());
@@ -32,3 +30,8 @@ Route::get('/testPost', function (Request $request) {
 Route::match(['get', 'post'],'/test3', function (Request $request) {
   return 'test3';
 });
+
+Route::get('/test1', 'TestController@someMethod');
+
+Route::get('/test2/{qwe1}/{qwe2}', 'TestController@someMethod2');
+
